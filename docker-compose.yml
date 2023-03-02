@@ -12,6 +12,9 @@ services:
     ports:
       - "9090:9090"
       - "5050:5050"
+    volumes:
+      - './data:/opt/nifi/nifi-current/data'
+      - './templates:/opt/nifi/nifi-current/conf/templates'
 
   orion:
     image: fiware/orion
