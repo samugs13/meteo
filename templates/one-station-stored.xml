@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>Template for retrieving data from one meteorological station, eliminate unnecessary attributes and store the modified entity in the CB.</description>
+    <description></description>
     <groupId>9c8b4de9-0186-1000-e2a9-150c08f4e604</groupId>
-    <name>one-station-stored</name>
+    <name>one-station-stored-no-update</name>
     <snippet>
         <connections>
             <id>1bbd9d20-6c2b-3568-0000-000000000000</id>
@@ -30,13 +30,13 @@
             <zIndex>0</zIndex>
         </connections>
         <connections>
-            <id>1ee2463c-438d-3903-0000-000000000000</id>
+            <id>1e5cfccd-72fe-3846-0000-000000000000</id>
             <parentGroupId>9ae94745-5b1e-348a-0000-000000000000</parentGroupId>
             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
             <destination>
                 <groupId>9ae94745-5b1e-348a-0000-000000000000</groupId>
-                <id>ef14aeea-4b04-39b1-0000-000000000000</id>
+                <id>ac9352d9-952a-3ee5-0000-000000000000</id>
                 <type>PROCESSOR</type>
             </destination>
             <flowFileExpiration>0 sec</flowFileExpiration>
@@ -54,37 +54,12 @@
             </source>
             <zIndex>0</zIndex>
         </connections>
-        <connections>
-            <id>760ff746-5e7d-3a15-0000-000000000000</id>
-            <parentGroupId>9ae94745-5b1e-348a-0000-000000000000</parentGroupId>
-            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-            <destination>
-                <groupId>9ae94745-5b1e-348a-0000-000000000000</groupId>
-                <id>ac9352d9-952a-3ee5-0000-000000000000</id>
-                <type>PROCESSOR</type>
-            </destination>
-            <flowFileExpiration>0 sec</flowFileExpiration>
-            <labelIndex>1</labelIndex>
-            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
-            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
-            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
-            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
-            <name></name>
-            <selectedRelationships>success</selectedRelationships>
-            <source>
-                <groupId>9ae94745-5b1e-348a-0000-000000000000</groupId>
-                <id>ef14aeea-4b04-39b1-0000-000000000000</id>
-                <type>PROCESSOR</type>
-            </source>
-            <zIndex>0</zIndex>
-        </connections>
         <processors>
             <id>18f0057b-ad04-324b-0000-000000000000</id>
             <parentGroupId>9ae94745-5b1e-348a-0000-000000000000</parentGroupId>
             <position>
-                <x>744.0</x>
-                <y>360.0</y>
+                <x>944.0</x>
+                <y>304.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -697,7 +672,7 @@
                     </entry>
                     <entry>
                         <key>Remote URL</key>
-                        <value>https://broker-yoda.dit.upm.es/ngsi-ld/v1/entities/urn:ngsi-ld:WeatherObserved:5000C-1</value>
+                        <value>https://broker-yoda.dit.upm.es/ngsi-ld/v1/entities/urn:ngsi-ld:WeatherObserved:3519X-1</value>
                     </entry>
                     <entry>
                         <key>SSL Context Service</key>
@@ -851,8 +826,8 @@
             <id>ac9352d9-952a-3ee5-0000-000000000000</id>
             <parentGroupId>9ae94745-5b1e-348a-0000-000000000000</parentGroupId>
             <position>
-                <x>0.0</x>
-                <y>352.0</y>
+                <x>200.0</x>
+                <y>296.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -964,82 +939,6 @@
             <style/>
             <type>org.apache.nifi.processors.standard.JoltTransformJSON</type>
         </processors>
-        <processors>
-            <id>ef14aeea-4b04-39b1-0000-000000000000</id>
-            <parentGroupId>9ae94745-5b1e-348a-0000-000000000000</parentGroupId>
-            <position>
-                <x>624.3893834119121</x>
-                <y>65.66220628733913</y>
-            </position>
-            <bundle>
-                <artifact>nifi-update-attribute-nar</artifact>
-                <group>org.apache.nifi</group>
-                <version>1.15.3</version>
-            </bundle>
-            <config>
-                <bulletinLevel>WARN</bulletinLevel>
-                <comments></comments>
-                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
-                <descriptors>
-                    <entry>
-                        <key>Delete Attributes Expression</key>
-                        <value>
-                            <name>Delete Attributes Expression</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Store State</key>
-                        <value>
-                            <name>Store State</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Stateful Variables Initial Value</key>
-                        <value>
-                            <name>Stateful Variables Initial Value</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>canonical-value-lookup-cache-size</key>
-                        <value>
-                            <name>canonical-value-lookup-cache-size</name>
-                        </value>
-                    </entry>
-                </descriptors>
-                <executionNode>ALL</executionNode>
-                <lossTolerant>false</lossTolerant>
-                <penaltyDuration>30 sec</penaltyDuration>
-                <properties>
-                    <entry>
-                        <key>Delete Attributes Expression</key>
-                    </entry>
-                    <entry>
-                        <key>Store State</key>
-                        <value>Do not store state</value>
-                    </entry>
-                    <entry>
-                        <key>Stateful Variables Initial Value</key>
-                    </entry>
-                    <entry>
-                        <key>canonical-value-lookup-cache-size</key>
-                        <value>100</value>
-                    </entry>
-                </properties>
-                <runDurationMillis>0</runDurationMillis>
-                <schedulingPeriod>0 sec</schedulingPeriod>
-                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
-                <yieldDuration>1 sec</yieldDuration>
-            </config>
-            <executionNodeRestricted>false</executionNodeRestricted>
-            <name>UpdateAttribute</name>
-            <relationships>
-                <autoTerminate>false</autoTerminate>
-                <name>success</name>
-            </relationships>
-            <state>RUNNING</state>
-            <style/>
-            <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
-        </processors>
     </snippet>
-    <timestamp>03/01/2023 11:40:30 UTC</timestamp>
+    <timestamp>03/01/2023 11:43:13 UTC</timestamp>
 </template>
