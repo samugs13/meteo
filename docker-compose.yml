@@ -1,0 +1,27 @@
+version: '3.1'
+
+services:
+
+  draco:
+    image: ging/fiware-draco:2.1.0
+    container_name: draco
+    environment:
+      - NIFI_WEB_HTTPS_PORT=9090
+      - SINGLE_USER_CREDENTIALS_USERNAME=admin
+      - SINGLE_USER_CREDENTIALS_PASSWORD=pass1234567890
+    ports:
+      - "9090:9090"
+      - "5050:5050"
+
+  orion:
+    image: fiware/orion
+    container_name: orion
+    ports:
+      - "1026:1026"
+    depends_on:
+      - mongo
+    command: -dbhost mongo # we tell the broker where the mongoDB host is
+
+  mongo:
+    image: mongo:4.4
+    command: --nojournal
